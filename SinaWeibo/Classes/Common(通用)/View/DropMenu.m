@@ -82,10 +82,19 @@
     // 设置位置
     _containerView.centerX = CGRectGetMidX(newFrame);
     _containerView.y = CGRectGetMaxY(newFrame);
+    
+    // 通过menu显示
+    if ([self.delegate respondsToSelector:@selector(dropDownMenuDidShow:)]) {
+        [self.delegate dropDownMenuDidShow:self];
+    }
 }
 
 -(void)dismiss{
     [self removeFromSuperview];
+    
+    if ([self.delegate respondsToSelector:@selector(dropDownMenuDidDismiss:)]) {
+        [self.delegate dropDownMenuDidDismiss:self];
+    }
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

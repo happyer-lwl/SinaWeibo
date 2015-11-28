@@ -8,7 +8,6 @@
 
 #import "HomeTableViewController.h"
 #import "UIBarButtonItem+Extension.h"
-#import "DropMenu.h"
 #import "TestTableView.h"
 
 @interface HomeTableViewController ()
@@ -36,6 +35,7 @@
     [titleBtn setTitleColor:hightLightedColor forState:UIControlStateHighlighted];
     // 设置图片
     [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:(UIControlStateNormal)];
+    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:(UIControlStateSelected)];
     // 设置图片的偏移
     [titleBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 130, 0, 0)];
     // 设置文字的位置
@@ -54,14 +54,17 @@
 }
 
 -(void)titleClick{
+    // 创建下拉菜单
     DropMenu *menu = [DropMenu menu];
-
+    menu.delegate = self;
+    
+    // 设置内容
     TestTableView *tableVC = [[TestTableView alloc]init];
     tableVC.view.height = 132;
     tableVC.view.width = 110;
     // 因为图片原因，不可设置宽度
     menu.contentController = tableVC;
-    
+    //显示
     [menu showFrom:_titleButton];
 }
 
@@ -73,6 +76,15 @@
     
 }
 
+#pragma mark - DropDownMenuDelegate 代理方法
+-(void)dropDownMenuDidDismiss:(DropMenu *)menu{
+    //[_titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    _titleButton.selected = NO;
+}
+
+-(void)dropDownMenuDidShow:(DropMenu *)menu{
+    _titleButton.selected = YES;
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

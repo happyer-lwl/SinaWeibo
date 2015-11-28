@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DropMenu.h"
 
-@interface HomeTableViewController : UITableViewController
+@interface HomeTableViewController : UITableViewController<WBDropDownDelegate>
 
 @end

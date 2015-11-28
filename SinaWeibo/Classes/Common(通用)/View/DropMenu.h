@@ -7,8 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+@class DropMenu;
+
+@protocol WBDropDownDelegate <NSObject>
+-(void)dropDownMenuDidDismiss: (DropMenu*)menu;
+-(void)dropDownMenuDidShow: (DropMenu*)menu;
+@end
 
 @interface DropMenu : UIView
+
+@property (nonatomic, weak) id<WBDropDownDelegate> delegate;
 
 + (instancetype)menu;
 
