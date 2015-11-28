@@ -1,5 +1,5 @@
 //
-//  MessageTableViewController.h
+//  TestTableView.h
 //  SinaWeibo
 //
 //  Created by 刘伟龙 on 15/11/27.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TestViewController.h"
 
-@interface MessageTableViewController : UITableViewController
+@interface TestTableView : UITableViewController
 
 @end

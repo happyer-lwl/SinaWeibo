@@ -7,8 +7,13 @@
 //
 
 #import "HomeTableViewController.h"
+#import "UIBarButtonItem+Extension.h"
+#import "DropMenu.h"
+#import "TestTableView.h"
 
 @interface HomeTableViewController ()
+
+@property (nonatomic, weak) UIButton *titleButton;
 
 @end
 
@@ -17,16 +22,55 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithAction:@selector(searchFriend) target:self image:@"navigationbar_friendsearch" highImage:@"navigationbar_friendsearch_highlighted"];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithAction:@selector(pop) target:self image:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted"];
+    
+    UIButton *titleBtn = [[UIButton alloc]init];
+    titleBtn.width = 200;
+    titleBtn.height = 40;
+    [titleBtn setTitle:@"首页" forState:UIControlStateNormal];
+    // 设置文字颜色
+    [titleBtn setTitleColor:[UIColor orangeColor] forState:(UIControlStateNormal)];
+    UIColor *hightLightedColor = RGBColor(132, 73, 23, 1.0);
+    [titleBtn setTitleColor:hightLightedColor forState:UIControlStateHighlighted];
+    // 设置图片
+    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:(UIControlStateNormal)];
+    // 设置图片的偏移
+    [titleBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 130, 0, 0)];
+    // 设置文字的位置
+    [titleBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 0)];
+    // 监听
+    [titleBtn addTarget:self action:@selector(titleClick) forControlEvents:(UIControlEventTouchUpInside)];
+    
+    _titleButton = titleBtn;
+    
+    self.navigationItem.titleView = _titleButton;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)titleClick{
+    DropMenu *menu = [DropMenu menu];
+
+    TestTableView *tableVC = [[TestTableView alloc]init];
+    tableVC.view.height = 132;
+    tableVC.view.width = 110;
+    // 因为图片原因，不可设置宽度
+    menu.contentController = tableVC;
+    
+    [menu showFrom:_titleButton];
+}
+
+-(void)searchFriend{
+    
+}
+
+-(void)pop{
+    
 }
 
 #pragma mark - Table view data source

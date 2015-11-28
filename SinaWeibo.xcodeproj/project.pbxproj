@@ -17,6 +17,17 @@
 		7ED256901C07F55E00846B0F /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2568F1C07F55E00846B0F /* MessageTableViewController.m */; };
 		7ED256931C07F57400846B0F /* DiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED256921C07F57400846B0F /* DiscoverTableViewController.m */; };
 		7ED256961C07F58300846B0F /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED256951C07F58300846B0F /* ProfileTableViewController.m */; };
+		7ED2569A1C07FAD300846B0F /* MainTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED256991C07FAD300846B0F /* MainTabbarController.m */; };
+		7ED2569D1C07FD6800846B0F /* WBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2569C1C07FD6800846B0F /* WBNavigationController.m */; };
+		7ED256A11C07FFD100846B0F /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2569F1C07FFD100846B0F /* TestViewController.m */; };
+		7ED256A21C07FFD100846B0F /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ED256A01C07FFD100846B0F /* TestViewController.xib */; };
+		7ED256B01C08063700846B0F /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED256AF1C08063700846B0F /* UIView+Extension.m */; };
+		7ED256B31C08065400846B0F /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED256B21C08065400846B0F /* UIBarButtonItem+Extension.m */; };
+		7ED256BA1C085E1D00846B0F /* HMWSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED256B91C085E1D00846B0F /* HMWSearchBar.m */; };
+		7ED256BD1C086B7E00846B0F /* DropMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED256BC1C086B7E00846B0F /* DropMenu.m */; };
+		7ED256C01C0876D000846B0F /* TestTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED256BF1C0876D000846B0F /* TestTableView.m */; };
+		7ED256C31C08ACA100846B0F /* WBCustomTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED256C21C08ACA100846B0F /* WBCustomTabbar.m */; };
+		7ED256C61C08BB4800846B0F /* AddTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED256C51C08BB4800846B0F /* AddTabViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +70,27 @@
 		7ED256921C07F57400846B0F /* DiscoverTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverTableViewController.m; sourceTree = "<group>"; };
 		7ED256941C07F58300846B0F /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
 		7ED256951C07F58300846B0F /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
+		7ED256981C07FAD300846B0F /* MainTabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabbarController.h; sourceTree = "<group>"; };
+		7ED256991C07FAD300846B0F /* MainTabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabbarController.m; sourceTree = "<group>"; };
+		7ED2569B1C07FD6800846B0F /* WBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNavigationController.h; sourceTree = "<group>"; };
+		7ED2569C1C07FD6800846B0F /* WBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNavigationController.m; sourceTree = "<group>"; };
+		7ED2569E1C07FFD100846B0F /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		7ED2569F1C07FFD100846B0F /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		7ED256A01C07FFD100846B0F /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		7ED256AE1C08063700846B0F /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		7ED256AF1C08063700846B0F /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		7ED256B11C08065400846B0F /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		7ED256B21C08065400846B0F /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		7ED256B81C085E1D00846B0F /* HMWSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMWSearchBar.h; sourceTree = "<group>"; };
+		7ED256B91C085E1D00846B0F /* HMWSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMWSearchBar.m; sourceTree = "<group>"; };
+		7ED256BB1C086B7E00846B0F /* DropMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropMenu.h; sourceTree = "<group>"; };
+		7ED256BC1C086B7E00846B0F /* DropMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropMenu.m; sourceTree = "<group>"; };
+		7ED256BE1C0876D000846B0F /* TestTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableView.h; sourceTree = "<group>"; };
+		7ED256BF1C0876D000846B0F /* TestTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableView.m; sourceTree = "<group>"; };
+		7ED256C11C08ACA100846B0F /* WBCustomTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCustomTabbar.h; sourceTree = "<group>"; };
+		7ED256C21C08ACA100846B0F /* WBCustomTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCustomTabbar.m; sourceTree = "<group>"; };
+		7ED256C41C08BB4800846B0F /* AddTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTabViewController.h; sourceTree = "<group>"; };
+		7ED256C51C08BB4800846B0F /* AddTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTabViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				7ED2566C1C07F51600846B0F /* Classes */,
-				7ED256971C07F86C00846B0F /* Main(主要) */,
 				7ED256281C07E56500846B0F /* Supporting Files */,
 			);
 			path = SinaWeibo;
@@ -153,6 +184,7 @@
 				7ED2567A1C07F51600846B0F /* Message(消息) */,
 				7ED2566E1C07F51600846B0F /* Discover(发现) */,
 				7ED256831C07F51600846B0F /* Profile(我的) */,
+				7ED256971C07F86C00846B0F /* Main(主要) */,
 				7ED2566D1C07F51600846B0F /* Common(通用) */,
 				7ED256801C07F51600846B0F /* Other(其他) */,
 			);
@@ -162,6 +194,8 @@
 		7ED2566D1C07F51600846B0F /* Common(通用) */ = {
 			isa = PBXGroup;
 			children = (
+				7ED256B71C085E1D00846B0F /* View */,
+				7ED256A31C0802EB00846B0F /* Category */,
 			);
 			path = "Common(通用)";
 			sourceTree = "<group>";
@@ -270,6 +304,8 @@
 			children = (
 				7ED256811C07F51600846B0F /* AppDelegate.h */,
 				7ED256821C07F51600846B0F /* AppDelegate.m */,
+				7ED256BE1C0876D000846B0F /* TestTableView.h */,
+				7ED256BF1C0876D000846B0F /* TestTableView.m */,
 			);
 			path = "Other(其他)";
 			sourceTree = "<group>";
@@ -310,9 +346,41 @@
 		7ED256971C07F86C00846B0F /* Main(主要) */ = {
 			isa = PBXGroup;
 			children = (
+				7ED256981C07FAD300846B0F /* MainTabbarController.h */,
+				7ED256991C07FAD300846B0F /* MainTabbarController.m */,
+				7ED2569B1C07FD6800846B0F /* WBNavigationController.h */,
+				7ED2569C1C07FD6800846B0F /* WBNavigationController.m */,
+				7ED2569E1C07FFD100846B0F /* TestViewController.h */,
+				7ED2569F1C07FFD100846B0F /* TestViewController.m */,
+				7ED256A01C07FFD100846B0F /* TestViewController.xib */,
+				7ED256C41C08BB4800846B0F /* AddTabViewController.h */,
+				7ED256C51C08BB4800846B0F /* AddTabViewController.m */,
 			);
-			name = "Main(主要)";
-			path = "Classes/Main(主要)";
+			path = "Main(主要)";
+			sourceTree = "<group>";
+		};
+		7ED256A31C0802EB00846B0F /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				7ED256AE1C08063700846B0F /* UIView+Extension.h */,
+				7ED256AF1C08063700846B0F /* UIView+Extension.m */,
+				7ED256B11C08065400846B0F /* UIBarButtonItem+Extension.h */,
+				7ED256B21C08065400846B0F /* UIBarButtonItem+Extension.m */,
+				7ED256C11C08ACA100846B0F /* WBCustomTabbar.h */,
+				7ED256C21C08ACA100846B0F /* WBCustomTabbar.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		7ED256B71C085E1D00846B0F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7ED256B81C085E1D00846B0F /* HMWSearchBar.h */,
+				7ED256B91C085E1D00846B0F /* HMWSearchBar.m */,
+				7ED256BB1C086B7E00846B0F /* DropMenu.h */,
+				7ED256BC1C086B7E00846B0F /* DropMenu.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ED256381C07E56500846B0F /* LaunchScreen.storyboard in Resources */,
+				7ED256A21C07FFD100846B0F /* TestViewController.xib in Resources */,
 				7ED256351C07E56500846B0F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,11 +516,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ED256C61C08BB4800846B0F /* AddTabViewController.m in Sources */,
+				7ED256B31C08065400846B0F /* UIBarButtonItem+Extension.m in Sources */,
+				7ED2569D1C07FD6800846B0F /* WBNavigationController.m in Sources */,
 				7ED256931C07F57400846B0F /* DiscoverTableViewController.m in Sources */,
+				7ED256B01C08063700846B0F /* UIView+Extension.m in Sources */,
 				7ED2568A1C07F51600846B0F /* HomeTableViewController.m in Sources */,
+				7ED256C01C0876D000846B0F /* TestTableView.m in Sources */,
+				7ED256BD1C086B7E00846B0F /* DropMenu.m in Sources */,
 				7ED2562A1C07E56500846B0F /* main.m in Sources */,
 				7ED256961C07F58300846B0F /* ProfileTableViewController.m in Sources */,
 				7ED2568C1C07F51600846B0F /* AppDelegate.m in Sources */,
+				7ED256BA1C085E1D00846B0F /* HMWSearchBar.m in Sources */,
+				7ED256A11C07FFD100846B0F /* TestViewController.m in Sources */,
+				7ED256C31C08ACA100846B0F /* WBCustomTabbar.m in Sources */,
+				7ED2569A1C07FAD300846B0F /* MainTabbarController.m in Sources */,
 				7ED256901C07F55E00846B0F /* MessageTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

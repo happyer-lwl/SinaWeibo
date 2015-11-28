@@ -7,10 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "HomeTableViewController.h"
-#import "MessageTableViewController.h"
-#import "DiscoverTableViewController.h"
-#import "ProfileTableViewController.h"
+#import "MainTabbarController.h"
 
 @interface AppDelegate ()
 
@@ -22,51 +19,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    //创建窗口
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
-    UITabBarController *tab = [[UITabBarController alloc]init];
-    self.window.rootViewController = tab;
-    
-    HomeTableViewController *homeVC = [[HomeTableViewController alloc]init];
-    [self addChildVc:homeVC title:@"首页" image:@"tabbar_home" selectImage:@"tabbar_home_selected"];
-    
-    MessageTableViewController *messageVC = [[MessageTableViewController alloc]init];
-    [self addChildVc:messageVC title:@"消息" image:@"tabbar_message_center" selectImage:@"tabbar_message_center_selected"];
-    
-    DiscoverTableViewController *discoverVC = [[DiscoverTableViewController alloc]init];
-    [self addChildVc:discoverVC title:@"发现" image:@"tabbar_discover" selectImage:@"tabbar_discovr_selected"];
-    
-    ProfileTableViewController *profileVC = [[ProfileTableViewController alloc]init];
-    [self addChildVc:profileVC title:@"我的" image:@"tabbar_profile" selectImage:@"tabbar_profile_selected"];
-    
-    tab.viewControllers = @[homeVC, messageVC, discoverVC, profileVC];
-//    [tab addChildViewController:vc1];
-//    [tab addChildViewController:vc2];
-//    [tab addChildViewController:vc3];
-//    [tab addChildViewController:vc4];
+    // 创建根控制器
+    self.window.rootViewController = [[MainTabbarController alloc]init];
     
     [self.window makeKeyAndVisible];
     return YES;
-}
-
--(UIViewController *)addChildVc:(UIViewController *)childVC title: (NSString *)title image: (NSString*)image selectImage: (NSString *)selectedImage {
-
-    // 设置子控制器的文字和图片
-    childVC.tabBarItem.title = title;
-    childVC.tabBarItem.image = [UIImage imageNamed:image];
-    childVC.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-    // 设置文字样式
-    NSMutableDictionary *profileAttri = [NSMutableDictionary dictionary];
-    profileAttri[NSForegroundColorAttributeName] = RGBColor(255.0, 111.0, -0, 1.0);
-    [childVC.tabBarItem setTitleTextAttributes:profileAttri forState:UIControlStateSelected];
-    profileAttri[NSForegroundColorAttributeName] = RGBColor(123, 123, 123, 1.0);
-    [childVC.tabBarItem setTitleTextAttributes:profileAttri forState:UIControlStateNormal];
-    
-    // 设置子控制器的北京颜色
-    childVC.view.backgroundColor = WBRandomColor;
-    
-    return childVC;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

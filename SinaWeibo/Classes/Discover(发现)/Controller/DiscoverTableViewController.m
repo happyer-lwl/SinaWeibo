@@ -7,8 +7,11 @@
 //
 
 #import "DiscoverTableViewController.h"
+#import "HMWSearchBar.h"
 
 @interface DiscoverTableViewController ()
+
+@property (nonatomic, weak) HMWSearchBar *searchBar;
 
 @end
 
@@ -17,11 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    _searchBar = [HMWSearchBar searchBar];
+    _searchBar.width = kScreenWidth - 40;
+    _searchBar.height = 30;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.titleView = _searchBar;
 }
 
 - (void)didReceiveMemoryWarning {
