@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "MainTabbarController.h"
+#import "WBOAuthViewController.h"
+#import "AccountModel.h"
+#import "AccountTool.h"
 
 @interface AppDelegate ()
 
@@ -19,13 +21,20 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    //创建窗口
+    // 1 创建窗口
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
-    // 创建根控制器
-    self.window.rootViewController = [[MainTabbarController alloc]init];
+    // 2 取出用户信息
+    AccountModel *accountModel = [AccountTool account];
+    if (accountModel) { // 之前登录过
+        [self.window switchRootViewController];
+    }else{
+        self.window.rootViewController = [[WBOAuthViewController alloc]init];
+    }
     
+    // 3 设置主窗口
     [self.window makeKeyAndVisible];
+
     return YES;
 }
 

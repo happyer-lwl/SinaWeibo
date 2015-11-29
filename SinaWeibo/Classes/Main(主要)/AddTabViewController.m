@@ -11,7 +11,8 @@
 @implementation AddTabViewController
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    [self.view removeFromSuperview];
 }
 
 @end

@@ -12,6 +12,8 @@
 
 @interface MainTabbarController ()
 
+@property (nonatomic, strong) AddTabViewController *addTabViewController;
+
 @end
 
 @implementation MainTabbarController
@@ -32,13 +34,17 @@
     [self addChildVc:profileVC title:@"我的" image:@"tabbar_profile" selectImage:@"tabbar_profile_selected"];
     
     // self.tabBar = [[WBCustomTabbar alloc]init];  只读属性，通过kvc来修改
-    [self setValue:[[WBCustomTabbar alloc]init] forKeyPath:@"tabBar"];
+    WBCustomTabbar *tabbar = [[WBCustomTabbar alloc]init];
+    //tabbar.delegate = self; // 此处OK
+    [self setValue:tabbar forKeyPath:@"tabBar"];
+    
+    // tabbar.delegate = self     ===>  Changing the delegate of a tabbar managed by a tab bar controller is not allowed
+    // 不允许修改Tabbar的delegate属性(这个tabbar是被tabbarViewController所管理的)
+    // 如果修改，需要放在修改tabbar的属性之前
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,10 +79,28 @@
 
 #pragma mark WBCustomTabBarDelegate代理方法
 -(void)addButtonClick:(UITabBar *)tabBar{
-    AddTabViewController *vc = [[AddTabViewController alloc]init];
-    vc.view.frame = CGRectMake(30, 300, 315, 300);
-    [vc.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"ViewController"]]];
-    
-    [self presentViewController:vc animated:YES completion:nil];
+//    AddTabViewController *vc = [[AddTabViewController alloc]init];
+//    vc.view.frame = self.view.window.bounds;
+//    //vc.view.backgroundColor = RGBColor(255, 0, 0, 0.3); //透明属性，就会不显示
+//    UIImageView *imageView = [[UIImageView alloc]init];
+//    vc.view.backgroundColor = [UIColor clearColor];
+//    vc.view.x = 50;
+//    vc.view.y = 100;
+//    vc.view.width = 275;
+//    vc.view.height = 300;
+//    imageView.x = 0;
+//    imageView.y = 0;
+//    imageView.width = 275;
+//    imageView.height = 300;
+//    imageView.backgroundColor = [UIColor redColor];
+//    [vc.view addSubview:imageView];
+//    _addTabViewController = vc;
+//    
+//    //[self presentViewController:_addTabViewController animated:YES completion:nil];
+//    [self.view addSubview:_addTabViewController.view];
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    //[_addTabViewController removeFromParentViewController];
 }
 @end
