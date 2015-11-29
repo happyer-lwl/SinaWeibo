@@ -15,7 +15,8 @@
     account.access_token    = dict[@"access_token"];
     account.expires_in      = dict[@"expires_in"];
     account.uid             = dict[@"uid"];
-    
+    // 获取帐号存储的当前时间
+    account.created_time    = [NSDate date]; 
     return account;
 }
 
@@ -28,6 +29,7 @@
     [encoder encodeObject:self.expires_in forKey:@"expires_in"];
     [encoder encodeObject:self.uid forKey:@"uid"];
     [encoder encodeObject:self.created_time forKey:@"created_time"];
+    [encoder encodeObject:self.name forKey:@"name"];
 }
 
 /**
@@ -40,6 +42,7 @@
         self.expires_in = [decoder decodeObjectForKey:@"expires_in"];
         self.uid = [decoder decodeObjectForKey:@"uid"];
         self.created_time = [decoder decodeObjectForKey:@"created_time"];
+        self.name = [decoder decodeObjectForKey:@"name"];
     }
     
     return self;

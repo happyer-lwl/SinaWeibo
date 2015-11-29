@@ -13,6 +13,8 @@
 		7E80EE411C0AFECE002E4C45 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E80EE3E1C0AFECE002E4C45 /* MBProgressHUD.m */; };
 		7E80EE451C0B03AB002E4C45 /* AccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E80EE441C0B03AB002E4C45 /* AccountTool.m */; };
 		7E80EE481C0B0C2A002E4C45 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E80EE471C0B0C2A002E4C45 /* UIWindow+Extension.m */; };
+		7E80EE4C1C0B221A002E4C45 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E80EE4B1C0B221A002E4C45 /* Foundation+Log.m */; };
+		7E80EE4F1C0B34D7002E4C45 /* WBTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E80EE4E1C0B34D7002E4C45 /* WBTitleButton.m */; };
 		7E8239831C0984F5002A5610 /* NewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8239821C0984F5002A5610 /* NewFeatureViewController.m */; };
 		7E82398B1C09F199002A5610 /* WBOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E82398A1C09F199002A5610 /* WBOAuthViewController.m */; };
 		7E8239BF1C09FBD7002A5610 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8239AD1C09FBD7002A5610 /* AFHTTPRequestOperation.m */; };
@@ -75,6 +77,9 @@
 		7E80EE441C0B03AB002E4C45 /* AccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTool.m; sourceTree = "<group>"; };
 		7E80EE461C0B0C2A002E4C45 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
 		7E80EE471C0B0C2A002E4C45 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
+		7E80EE4B1C0B221A002E4C45 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		7E80EE4D1C0B34D7002E4C45 /* WBTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTitleButton.h; sourceTree = "<group>"; };
+		7E80EE4E1C0B34D7002E4C45 /* WBTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTitleButton.m; sourceTree = "<group>"; };
 		7E8239811C0984F5002A5610 /* NewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureViewController.h; sourceTree = "<group>"; };
 		7E8239821C0984F5002A5610 /* NewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureViewController.m; sourceTree = "<group>"; };
 		7E8239891C09F199002A5610 /* WBOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBOAuthViewController.h; sourceTree = "<group>"; };
@@ -430,6 +435,8 @@
 		7ED256791C07F51600846B0F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7E80EE4D1C0B34D7002E4C45 /* WBTitleButton.h */,
+				7E80EE4E1C0B34D7002E4C45 /* WBTitleButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -530,6 +537,7 @@
 		7ED256A31C0802EB00846B0F /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				7E80EE4B1C0B221A002E4C45 /* Foundation+Log.m */,
 				7ED256AE1C08063700846B0F /* UIView+Extension.h */,
 				7ED256AF1C08063700846B0F /* UIView+Extension.m */,
 				7ED256B11C08065400846B0F /* UIBarButtonItem+Extension.h */,
@@ -691,6 +699,7 @@
 				7ED256B31C08065400846B0F /* UIBarButtonItem+Extension.m in Sources */,
 				7E8239C31C09FBD7002A5610 /* AFSecurityPolicy.m in Sources */,
 				7E80EDFA1C0AA032002E4C45 /* AccountModel.m in Sources */,
+				7E80EE4C1C0B221A002E4C45 /* Foundation+Log.m in Sources */,
 				7E8239C01C09FBD7002A5610 /* AFHTTPRequestOperationManager.m in Sources */,
 				7E8239BF1C09FBD7002A5610 /* AFHTTPRequestOperation.m in Sources */,
 				7E80EE411C0AFECE002E4C45 /* MBProgressHUD.m in Sources */,
@@ -718,6 +727,7 @@
 				7E80EE451C0B03AB002E4C45 /* AccountTool.m in Sources */,
 				7E8239C21C09FBD7002A5610 /* AFNetworkReachabilityManager.m in Sources */,
 				7E8239831C0984F5002A5610 /* NewFeatureViewController.m in Sources */,
+				7E80EE4F1C0B34D7002E4C45 /* WBTitleButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

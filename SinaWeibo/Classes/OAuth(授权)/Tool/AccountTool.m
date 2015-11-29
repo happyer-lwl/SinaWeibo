@@ -14,10 +14,6 @@
 @implementation AccountTool
 
 +(void)saveAccount:(AccountModel *)model{
-    // 获取帐号存储的当前时间
-    NSDate *createdDate = [NSDate date];
-    // 保存创建时间属性
-    model.created_time = createdDate;
     // 将模型对象存进沙盒,自定义的对象存储必须用NSKeyedArchiver，不再用writeToFile方法
     [NSKeyedArchiver archiveRootObject:model toFile:kAccountFilePath];
 }

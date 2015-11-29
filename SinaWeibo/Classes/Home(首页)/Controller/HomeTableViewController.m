@@ -9,10 +9,16 @@
 #import "HomeTableViewController.h"
 #import "UIBarButtonItem+Extension.h"
 #import "TestTableView.h"
+#import "AFNetworking.h"
+#import "MBProgressHUD+MJ.h"
+
+#import "AccountTool.h"
+
+#import "WBTitleButton.h"
 
 @interface HomeTableViewController ()
 
-@property (nonatomic, weak) UIButton *titleButton;
+@property (nonatomic, weak) WBTitleButton *titleButton;
 
 @end
 
@@ -21,39 +27,74 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithAction:@selector(searchFriend) target:self image:@"navigationbar_friendsearch" highImage:@"navigationbar_friendsearch_highlighted"];
+    // 设置导航栏的内容
+    [self setupNav];
     
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithAction:@selector(pop) target:self image:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted"];
-    
-    UIButton *titleBtn = [[UIButton alloc]init];
-    titleBtn.width = 200;
-    titleBtn.height = 40;
-    [titleBtn setTitle:@"首页" forState:UIControlStateNormal];
-    // 设置文字颜色
-    [titleBtn setTitleColor:[UIColor orangeColor] forState:(UIControlStateNormal)];
-    UIColor *hightLightedColor = RGBColor(132, 73, 23, 1.0);
-    [titleBtn setTitleColor:hightLightedColor forState:UIControlStateHighlighted];
-    // 设置图片
-    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:(UIControlStateNormal)];
-    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:(UIControlStateSelected)];
-    // 设置图片的偏移
-    [titleBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 130, 0, 0)];
-    // 设置文字的位置
-    [titleBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 0)];
-    // 监听
-    [titleBtn addTarget:self action:@selector(titleClick) forControlEvents:(UIControlEventTouchUpInside)];
-    
-    _titleButton = titleBtn;
-    
-    self.navigationItem.titleView = _titleButton;
+    // 设置用户信息
+    //[self setupUserInfo];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+// 设置导航栏的内容
+-(void)setupNav{
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithAction:@selector(searchFriend) target:self image:@"navigationbar_friendsearch" highImage:@"navigationbar_friendsearch_highlighted"];
+    
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithAction:@selector(pop) target:self image:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted"];
+    
+    /* 中间的标题按钮 */
+    WBTitleButton *titleButton = [[WBTitleButton alloc] init];
+    // 设置图片和文字
+    NSString *name = [AccountTool account].name;
+    [titleButton setTitle:name?name:@"首页" forState:UIControlStateNormal];
+    // 监听标题点击
+    [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    _titleButton = titleButton;
+    
+    self.navigationItem.titleView = _titleButton;
+}
 
--(void)titleClick{
+// 设置用户信息
+-(void)setupUserInfo{
+    // API: https://api.weibo.com/2/users/show.json
+    // access_token	false	string	采用OAuth授权方式为必填参数，其他授权方式不需要此参数，OAuth授权后获得。
+    // uid	false	int64	需要查询的用户ID。
+    
+    // 1.请求管理者
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+
+    // 2.拼接请求参数
+    AccountModel* model = [AccountTool account];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = model.access_token;
+    params[@"uid"] = model.uid;
+    
+    // 3.发送请求,成功或者失败都要隐藏ProgressHUD
+    NSString *urlString = @"https://api.weibo.com/2/users/show.json";
+    [mgr GET:urlString parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary* responseObject) {
+        
+        NSString *userName = responseObject[@"screen_name"];
+        DBLog(@"请求成功-%@", userName);
+       
+        [_titleButton setTitle:userName forState:UIControlStateNormal];
+            
+        AccountModel *accountModel = [AccountTool account];
+        accountModel.name = userName;
+        [AccountTool saveAccount:accountModel];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        DBLog(@"请求失败-%@", error);
+        
+        AccountModel *accountModel = [AccountTool account];
+        [_titleButton setTitle:accountModel.name forState:UIControlStateNormal];
+    }];
+}
+
+
+-(void)titleClick: (UIButton*)sender{
     // 创建下拉菜单
     DropMenu *menu = [DropMenu menu];
     menu.delegate = self;
@@ -96,59 +137,4 @@
 #warning Incomplete implementation, return the number of rows
     return 0;
 }
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end
